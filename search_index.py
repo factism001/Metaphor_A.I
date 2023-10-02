@@ -1,8 +1,10 @@
+import os
 from metaphor_python import Metaphor
 from bs4 import BeautifulSoup
 
 # Replace 'YOUR_API_KEY' with your actual Metaphor API key
-api_key = '98c8e544-1e55-4fa4-b103-f8ecef2d4394'
+
+api_key = os.environ.get('METAPHOR_API_KEY')
 
 # Initialize the Metaphor client
 metaphor = Metaphor(api_key)
@@ -19,7 +21,7 @@ try:
         use_autoprompt=True,
         num_results=num_results,
         start_published_date=start_published_date,
-        type='neural'
+        type='magic'
     )
     contents_response = search_response.get_contents()
 
